@@ -1,0 +1,227 @@
+﻿
+
+ 
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="/inc/mst2.css" rel="stylesheet" type="text/css" />
+<link href="/inc/css.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.STYLE27 {color: #940000}
+.STYLE29 {color: #FFFFFF}
+body {
+	background-color: #FAFAFA;
+}
+.STYLE30 {color: #7C7979}
+.STYLE32 {font-family: Arial, Helvetica, sans-serif}
+-->
+</style>
+
+<title>检索结果</title>
+
+<style type="text/css">
+<!--
+.i {font-size: 9pt}
+-->
+</style>
+<script>
+function transearchword()
+{
+    
+    var str = form1.searchword.value;
+	if(str=="关键词检索"|str=="")
+	{
+    		alert("请输入检索关键词!");
+		return false;
+	}
+	str=str.replace(/(^[\s\u3000]*)|([\s\u3000]*$)/g, "");
+	str=str.replace(/(^\u3000*)|(\u3000*$)/g, "");
+	str=str.replace(/(^\s*)|(\s*$)/g, "");
+	var DBCStr="";
+	var int=str.length;
+	for(var i=0; i<int; i++)
+	{ 	
+		var c = str.charCodeAt(i);
+		if(c == 12288|c == 32)
+		{
+		  if(DBCStr.charAt(DBCStr.length-1)!="*") 
+		  {
+		  	DBCStr+="*"; 
+		  }
+		}
+		else
+		{	
+		  DBCStr+= String.fromCharCode(c); 
+		}
+	} 	
+	form1.searchword.value=DBCStr;
+    
+}
+function reloadparent(selectvalue)
+{	
+	if(document.body.scrollHeight>550)
+	{
+		if(parent.document.getElementById("main")!=null)
+		{
+			parent.document.getElementById("main").height=this.document.body.scrollHeight;
+		}
+	}	
+	else
+	{
+		if(parent.document.getElementById("main")!=null)
+		{
+			parent.document.getElementById("main").height = 550;		
+			document.getElementById("tab").height=550;
+		}
+	}
+
+
+if(selectvalue == "+DOCRELTIME")
+{
+document.all.sortfield.selectedIndex=1;
+}
+if(selectvalue == "-DOCRELTIME")
+{
+document.all.sortfield.selectedIndex=0;
+}	
+
+if(27195 <= 6)
+{
+Zoom.style.display="none";
+}
+}
+
+function getWord()
+ {
+
+	var txt = '';
+	var foundIn = '';
+	if (window.getSelection)
+	{
+		txt = window.getSelection();		
+	}
+	else if (document.getSelection)
+	{
+		txt = document.getSelection();	
+	}
+	else if (document.selection)
+	{
+		txt = document.selection.createRange().text;
+	}
+	
+	if(txt!="")
+	{
+		if(typeof(document.getElementById("searchword"))!="undefined")
+		{
+			document.getElementById("searchword").value=txt;
+		}	
+	}
+}
+function checkpage()
+{
+	var all = 907;	
+	if(document.page.page.value>all)
+	{
+		document.page.page.value = all;
+	}
+}
+function checkpage2()
+{
+	var all = 907;	
+	if(document.page2.page.value>all)
+	{
+		document.page2.page.value = all;
+	}
+}
+</script>
+
+</head>
+<body  bgcolor="#FFFFFF" >
+<script language='JavaScript' src='/inc/dh_top.js'>
+</script>
+<script language='JavaScript' src='/inc/dh.js'>
+</script>
+<TABLE cellSpacing=0 cellPadding=0 width=980 bgColor=#333333 border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE width=980 border=0 cellPadding=0 cellSpacing=0 bgcolor="#FFFFFF" >
+  <TBODY>
+  <TR>
+    <TD vAlign=top bgColor=#F0F0F0>
+      <TABLE width=165 border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD background="/images/yel.jpg" bgColor=#f4cf42>
+            <TABLE width="163" border=0 align="right" cellPadding=0 cellSpacing=3>
+              <TBODY>
+              <TR>
+                <TD colSpan=2 valign="bottom">
+                  <DIV  class=style21 STYLE28>&nbsp;&nbsp;<span class="STYLE32">www.most.gov.cn</span></DIV></TD>
+              </TR>
+              
+                  <script language="javascript" src="/inc/left1.js"  type='text/JavaScript'></script>
+				  </TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+        <tr>
+          <td bgcolor="#CCCCCC"><TABLE border=1 cellPadding=0 cellSpacing=0 bgcolor="#83C3FF">
+            <TBODY>
+              <TR>
+                <TD bgColor=#83C3FF height=22><img src="/images/lefttu.jpg" width="163" height="99"></TD>
+              </TR>
+              <TR>
+                <TD bgColor=#83C3FF><table cellspacing=0 cellpadding=0 width="96%" bgcolor=#4678b7 
+            border=0>
+                    <tbody>
+                      <tr>
+                        <td bgcolor="#83C3FF"><table cellspacing=0 cellpadding=0 width="100%" border=0>
+                            <tbody>
+                              <tr>
+                                <td height="10">&nbsp;</td>
+                              </tr>
+                            </tbody>
+                          </table>
+						<script language='JavaScript' src='/inc/left2.js'  type='text/JavaScript'></script>
+						 
+<script language='JavaScript'> wsdc("站内检索")</script>
+                          
+                            </td>
+                      </tr>
+                    </tbody>
+                </table></TD>
+              </TR>
+            </TBODY>
+          </TABLE></td>
+        </tr>
+      </table></TD>
+    <TD vAlign=top width=599>
+<br><br><br>
+<table align="center" width="50%">
+<tr><td>
+ <p align="left"><br>
+              <font color="red">未找到和您查询的词相匹配的网页，建议您:</font> <br>
+              <br>
+            </p>
+
+ 
+1.查看输入的文字是否有误; <br>
+
+2.去掉可能不必要的字符，如"<"、">"等;<br>
+
+ </td></tr></table>
+ 
+
+
+
+</TD>
+    <TD vAlign=top width=216 bgColor=#d7d7d7>
+     <script language='JavaScript' src='/inc/right.js' type='text/JavaScript'></script>
+</TD></TR></TBODY></TABLE>
+      
+<script language='JavaScript' src='/inc/bottom.js' type='text/JavaScript'></script>
+</BODY></HTML>
+
