@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from ..items import DataZlianjiaItem
-
+import re
 
 class ZlianjiaSpider(scrapy.Spider):
     name = 'zlianjia'
@@ -10,7 +10,7 @@ class ZlianjiaSpider(scrapy.Spider):
 
     def start_requests(self):
         for i in range(1, 101):
-            url = 'https://m.lianjia.com/chuzu/bj/zufang/changping/pg%srt200600000001/?ajax=1' % i
+            url = 'https://m.lianjia.com/chuzu/bj/zufang/fangshan/pg%srt200600000001/?ajax=1' % i
             yield scrapy.Request(url=url, callback=self.parse, dont_filter=True)
 
     def parse(self, response):
@@ -30,16 +30,34 @@ class ZlianjiaSpider(scrapy.Spider):
             new_tag += ' '
         item['tag'] = new_tag
         zprice = response.xpath('.//div[@class="box content__detail--info"]/ul/li[1]/span[2]/text()').extract_first()
+        zprice = re.sub('[^\d]+', '', zprice)
         item['zprice'] = zprice
         types = response.xpath('.//div[@class="box content__detail--info"]/ul/li[2]/span[2]/text()').extract_first()
-        item['types'] = types.strip()
+        s = '0'
+        t = '0'
+        w = '0'
+        for i in range(len(types)):
+            if '室' in types:
+                if types[i] == '室':
+                    s = types[i - 1]
+            if '厅' in types:
+                if types[i] == '厅':
+                    t = types[i - 1]
+            if '卫' in types:
+                if types[i] == '卫':
+                    w = types[i - 1]
+        item['type_s'] = s
+        item['type_t'] = t
+        item['type_w'] = w
         area = response.xpath('.//div[@class="box content__detail--info"]/ul/li[3]/span[2]/text()').extract_first()
+        area = re.sub('㎡', '', area)
         item['area'] = area
         threading = title.split(' ')[2]
         item['threading'] = threading
-        floor = response.xpath('.//li[@class="oneline"][4]/span/text()').extract_first()
+        floor_ls = response.xpath('.//li[@class="oneline"][4]/span/text()').extract_first()
+        floor = floor_ls.split('/')[0]
         item['floor'] = floor
-        floors = floor.split('/')[1]
+        floors = floor_ls.split('/')[1]
         item['floors'] = floors
         areaName = response.xpath('.//p[@class="resblock"]/a/text()').extract_first()
         item['areaName'] = areaName.strip()
@@ -48,7 +66,7 @@ class ZlianjiaSpider(scrapy.Spider):
         coord = response.xpath('.//a[@class="map--container"]/@href').extract_first()
         item['coord'] = coord.split('=')[1]
         sub_met = response.xpath('.//ul[@class="box page-map-list"]/li[1]/span[@class="fr"][1]/text()').extract_first()
-        item['sub_met'] = sub_met
+        item['sub_met'] = re.sub('米', '', sub_met)
         div_li = response.xpath('.//div[@class="box detail"]/a/text()').extract_first()
         item['yiy'] = 0
         item['bus'] = 0
@@ -73,6 +91,8 @@ class ZlianjiaSpider(scrapy.Spider):
                 pass
 
         pry_type = response.xpath('.//td[@class="cost-name"]/text()').extract_first()
+        pry_type = re.sub(r'房租', '', pry_type)
+        pry_type = re.sub(r'\(|\)', '', pry_type)
         item['pry_type'] = pry_type
         y_price = response.xpath('.//td[@class="td-right"]/text()').extract_first()
         item['y_price'] = y_price

@@ -15,12 +15,12 @@ SPIDER_MODULES = ['data_5i5j.spiders']
 NEWSPIDER_MODULE = 'data_5i5j.spiders'
 
 IPPOOL = [
-        '110.52.235.220:9999',
-        '115.151.4.140:9999'
+    '110.52.235.220:9999',
+    '115.151.4.140:9999'
 ]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
 
 data = ["Mozilla/5.0 (Linux; U; Android 0.5; en-us) AppleWebKit/522 (KHTML, like Gecko) Safari/419.3",
         "Mozilla/5.0 (Linux; U; Android 1.0; en-us; dream) AppleWebKit/525.10 (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2",
@@ -351,8 +351,10 @@ CONCURRENT_REQUESTS = 64
 DEFAULT_REQUEST_HEADERS = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'en',
-    'Cookie': 'CURRENT_CITY_CODE=110000; __utm_source=pinzhuan; __utm_medium=baidu; ZIROOM_PHONE=9; CURRENT_CITY_NAME=%E5%8C%97%E4%BA%AC; mapType=%20; gr_user_id=b5e8e825-363b-4cc7-8f92-7c1e4a2e1d80; PHPSESSID=cgnbvvs3cksaem9ith96s0hpd7; BJ_nlist=%7B%2261577744%22%3A%7B%22id%22%3A%2261577744%22%2C%22sell_price%22%3A1890%2C%22title%22%3A%22%5Cu660c%5Cu5e73%5Cu6c99%5Cu6cb3%5Cu660c%5Cu5e73%5Cu7ebf%5Cu660c%5Cu5e73%5Cu7ad9%5Cu65b0%5Cu60a6%5Cu5bb6%5Cu56ed3%5Cu5c45%5Cu5ba4-%5Cu5357%5Cu5367%22%2C%22add_time%22%3A1550481822%2C%22usage_area%22%3A12%2C%22floor%22%3A%224%22%2C%22floor_total%22%3A%226%22%2C%22room_photo%22%3A%22g2m1%5C%2FM00%5C%2FF2%5C%2F2B%5C%2FChAFBlwOMpyAXyvmAByCEsIYFoc212.JPG%22%2C%22city_name%22%3A%22%5Cu5317%5Cu4eac%22%7D%7D; gr_session_id_8da2730aaedd7628=5bd36583-072b-45d7-8aca-2a381f4d56eb; gr_session_id_8da2730aaedd7628_5bd36583-072b-45d7-8aca-2a381f4d56eb=true; passport_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMmY2YjVlMC04MWJlLTQxNDYtYWExZC03MWE3YWZhZGQzMWMiLCJ0eXBlIjoyLCJsZW5ndGgiOjEyMCwidG9rZW4iOiJiMGM1ZWViZi05MWI3LTQ1ZjMtOTQ0My00ZTY1OWJlZTI3ZDciLCJjcmVhdGVUaW1lIjoxNTUwNTQ2OTYwMDQyfQ.HGrDs2cEcjdXdc149mIVIdZwA0ikBHwWOhHUnQKu0bQ',
-    'Host': 'www.ziroom.com'
+    # 'Cookie': 'CURRENT_CITY_CODE=110000; __utm_source=pinzhuan; __utm_medium=baidu; ZIROOM_PHONE=9; CURRENT_CITY_NAME=%E5%8C%97%E4%BA%AC; mapType=%20; gr_user_id=b5e8e825-363b-4cc7-8f92-7c1e4a2e1d80; PHPSESSID=cgnbvvs3cksaem9ith96s0hpd7; BJ_nlist=%7B%2261577744%22%3A%7B%22id%22%3A%2261577744%22%2C%22sell_price%22%3A1890%2C%22title%22%3A%22%5Cu660c%5Cu5e73%5Cu6c99%5Cu6cb3%5Cu660c%5Cu5e73%5Cu7ebf%5Cu660c%5Cu5e73%5Cu7ad9%5Cu65b0%5Cu60a6%5Cu5bb6%5Cu56ed3%5Cu5c45%5Cu5ba4-%5Cu5357%5Cu5367%22%2C%22add_time%22%3A1550481822%2C%22usage_area%22%3A12%2C%22floor%22%3A%224%22%2C%22floor_total%22%3A%226%22%2C%22room_photo%22%3A%22g2m1%5C%2FM00%5C%2FF2%5C%2F2B%5C%2FChAFBlwOMpyAXyvmAByCEsIYFoc212.JPG%22%2C%22city_name%22%3A%22%5Cu5317%5Cu4eac%22%7D%7D; gr_session_id_8da2730aaedd7628=5bd36583-072b-45d7-8aca-2a381f4d56eb; gr_session_id_8da2730aaedd7628_5bd36583-072b-45d7-8aca-2a381f4d56eb=true; passport_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIzMmY2YjVlMC04MWJlLTQxNDYtYWExZC03MWE3YWZhZGQzMWMiLCJ0eXBlIjoyLCJsZW5ndGgiOjEyMCwidG9rZW4iOiJiMGM1ZWViZi05MWI3LTQ1ZjMtOTQ0My00ZTY1OWJlZTI3ZDciLCJjcmVhdGVUaW1lIjoxNTUwNTQ2OTYwMDQyfQ.HGrDs2cEcjdXdc149mIVIdZwA0ikBHwWOhHUnQKu0bQ',
+    # 'Host': 'www.ziroom.com'
+    'Host': 'bj.lianjia.com',
+    'Referer': 'https://bj.lianjia.com/chengjiao/',
 }
 
 # Enable or disable spider middlewares
@@ -363,10 +365,10 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-    # 'data_5i5j.middlewares.Data5I5JDownloaderMiddleware': 543,
-    # 'data_5i5j.middlewares.MyproxiesSpiderMiddleware': 543,
-}
+# DOWNLOADER_MIDDLEWARES = {
+# 'data_5i5j.middlewares.Data5I5JDownloaderMiddleware': 543,
+# 'data_5i5j.middlewares.MyproxiesSpiderMiddleware': 543,
+# }
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -381,7 +383,8 @@ ITEM_PIPELINES = {
     # 'data_5i5j.pipelines.DataZ5I5JPipeline': 300,
     # 'data_5i5j.pipelines.DataLianJiaPipeline': 301,
     # 'data_5i5j.pipelines.DataZLianJiaPipeline': 301,
-    'data_5i5j.pipelines.DataZiRuPipeline': 301,
+    # 'data_5i5j.pipelines.DataZiRuPipeline': 301,
+    'data_5i5j.pipelines.DataCjLianJiaPipeline': 301,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -405,7 +408,10 @@ ITEM_PIPELINES = {
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-RETRY_HTTP_CODES = [301, 302]
+# Retry many times since proxies often fail
+RETRY_TIMES = 10
+# Retry on most error codes since proxies fail for different reasons
+RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408,301,302]
 
 LOG_FILE = '5i5j.log'
 LOG_ENABLE = True
